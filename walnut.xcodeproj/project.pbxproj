@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4D1D75E921864C1E00A967A6 /* libboost_filesystem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D8DCDF4218648D8008A44EF /* libboost_filesystem.a */; };
 		4D1D75EB21864D8700A967A6 /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1D75EA21864D8700A967A6 /* libboost_system.a */; };
+		4D1D75EE2186531F00A967A6 /* Middleware.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D1D75EC2186531F00A967A6 /* Middleware.cpp */; };
+		4D1D75F12186552500A967A6 /* MarkdownMiddleware.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D1D75EF2186552500A967A6 /* MarkdownMiddleware.cpp */; };
+		4D1D75F421865BF600A967A6 /* Pipeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D1D75F221865BF500A967A6 /* Pipeline.cpp */; };
 		4D48AA7B2185FFA800A242A8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D48AA7A2185FFA800A242A8 /* main.cpp */; };
 		4D8D94C42186122E008A44EF /* Config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D8D94C22186122E008A44EF /* Config.cpp */; };
 		4D8D94E3218637E8008A44EF /* File.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D8D94E1218637E8008A44EF /* File.cpp */; };
@@ -30,6 +33,12 @@
 
 /* Begin PBXFileReference section */
 		4D1D75EA21864D8700A967A6 /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = src/vendor/boost/lib/libboost_system.a; sourceTree = "<group>"; };
+		4D1D75EC2186531F00A967A6 /* Middleware.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Middleware.cpp; sourceTree = "<group>"; };
+		4D1D75ED2186531F00A967A6 /* Middleware.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Middleware.hpp; sourceTree = "<group>"; };
+		4D1D75EF2186552500A967A6 /* MarkdownMiddleware.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MarkdownMiddleware.cpp; sourceTree = "<group>"; };
+		4D1D75F02186552500A967A6 /* MarkdownMiddleware.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MarkdownMiddleware.hpp; sourceTree = "<group>"; };
+		4D1D75F221865BF500A967A6 /* Pipeline.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Pipeline.cpp; sourceTree = "<group>"; };
+		4D1D75F321865BF500A967A6 /* Pipeline.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Pipeline.hpp; sourceTree = "<group>"; };
 		4D48AA772185FFA800A242A8 /* walnut */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = walnut; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D48AA7A2185FFA800A242A8 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		4D8D94C1218611F0008A44EF /* walnut.toml */ = {isa = PBXFileReference; lastKnownFileType = text; path = walnut.toml; sourceTree = "<group>"; };
@@ -13470,6 +13479,12 @@
 				4D48AA7A2185FFA800A242A8 /* main.cpp */,
 				4D8D94C22186122E008A44EF /* Config.cpp */,
 				4D8D94C32186122E008A44EF /* Config.hpp */,
+				4D1D75EC2186531F00A967A6 /* Middleware.cpp */,
+				4D1D75ED2186531F00A967A6 /* Middleware.hpp */,
+				4D1D75EF2186552500A967A6 /* MarkdownMiddleware.cpp */,
+				4D1D75F02186552500A967A6 /* MarkdownMiddleware.hpp */,
+				4D1D75F221865BF500A967A6 /* Pipeline.cpp */,
+				4D1D75F321865BF500A967A6 /* Pipeline.hpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -35893,6 +35908,9 @@
 				4D8D94E3218637E8008A44EF /* File.cpp in Sources */,
 				4D48AA7B2185FFA800A242A8 /* main.cpp in Sources */,
 				4D8DCE00218648DA008A44EF /* strict_cpp_re.inc in Sources */,
+				4D1D75F421865BF600A967A6 /* Pipeline.cpp in Sources */,
+				4D1D75EE2186531F00A967A6 /* Middleware.cpp in Sources */,
+				4D1D75F12186552500A967A6 /* MarkdownMiddleware.cpp in Sources */,
 				4D8DCE01218648DA008A44EF /* cpp_re.inc in Sources */,
 				4D8D94C42186122E008A44EF /* Config.cpp in Sources */,
 			);

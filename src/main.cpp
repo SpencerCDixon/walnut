@@ -12,22 +12,31 @@
 #include <fstream>
 
 #include "Config.hpp"
-#include "utils/File.hpp"
-#include "maddy/parser.h"
+#include "Pipeline.hpp"
+#include "MarkdownMiddleware.hpp"
+
 
 int main(int argc, const char * argv[]) {
-    auto config = std::make_shared<Config>();
-
-    auto layoutPath = config->GetLayoutPath();
-    auto contentPath = config->GetContentPath();
-
-    auto parser = std::make_shared<maddy::Parser>();
-
-    auto results = wn::util::filesWithExtension(contentPath, ".md");
+    auto config = std::make_shared<wn::Config>();
     
-    for (auto f : results) {
-        std::cout << "  found: " << f << std::endl;
-    }
+    auto pipeline = wn::Pipeline(config);
+    
+    auto mdMiddleware = std::make_unique<wn::MarkdownMiddleware>();
+    
+    pipeline.RegisterMiddleware(std::move(mdMiddleware));
+    
+    pipeline.Execute();
+
+//    auto layoutPath = config->GetLayoutPath();
+//    auto contentPath = config->GetContentPath();
+
+//    auto parser = std::make_shared<maddy::Parser>();
+
+//    auto results = wn::util::filesWithExtension(contentPath, ".md");
+    
+//    for (auto f : results) {
+//        std::cout << "  found: " << f << std::endl;
+//    }
     
 
 //    for (auto f : results) {

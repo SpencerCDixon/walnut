@@ -12,20 +12,22 @@
 #include <string>
 #include "cpptoml/cpptoml.h"
 
-class Config {
-public:
-    Config();
-    ~Config();
-    
-    std::string GetLayoutPath() const;
-    std::string GetContentPath() const;
-    std::string GetDistPath() const;
-    
-private:
-    std::shared_ptr<cpptoml::table> m_Table;
-    
-private:
-    std::string GetStringWithBackup(const std::string& key, const std::string& backup) const;
-};
+namespace wn {
+    class Config {
+    public:
+        Config();
+        ~Config();
+        
+        std::string GetLayoutPath() const;
+        std::string GetContentPath() const;
+        std::string GetDistPath() const;
+        
+    private:
+        std::shared_ptr<cpptoml::table> m_Table;
+        
+    private:
+        std::string GetStringWithBackup(const std::string& key, const std::string& backup) const;
+    };
+}
 
 #endif /* Config_hpp */
