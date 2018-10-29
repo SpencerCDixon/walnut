@@ -28,8 +28,6 @@ namespace wn {
             }
             auto page = std::make_shared<Page>(contents.str(), std::move(meta));
             
-//            std::cout << page->metadata->path << page->content << std::endl;
-            
             m_Pages.push_back(page);
         }
     }

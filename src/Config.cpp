@@ -8,10 +8,17 @@
 
 #include "Config.hpp"
 #include <iostream>
+#include <exception>
 
 namespace wn {
-    Config::Config() : m_Table(cpptoml::parse_file("walnut.toml")) {
-        std::cout << "loaded default config walnut.toml" << std::endl;
+    Config::Config() : m_Table(nullptr) {
+        try {
+            m_Table = cpptoml::parse_file("walnut.toml");
+            std::cout << "loaded default config walnut.toml" << std::endl;
+        } catch (std::exception& e) {
+            std::cout << "WALNUT ERROR: could not parse config file" << std::endl;
+            // TODO: handle config parsing errors.
+        }
     }
 
     Config::~Config() {}
@@ -29,6 +36,7 @@ namespace wn {
     }
 
     std::string Config::GetStringWithBackup(const std::string& key, const std::string& backup) const {
+        if (!m_Table) return backup;
         auto str = m_Table->get_as<std::string>(key);
         
         if (str) {
