@@ -14,9 +14,8 @@
 #include <boost/filesystem.hpp>
 
 namespace wn { namespace util {
-    namespace fs = boost::filesystem;
     std::vector<std::string> filesWithExtension(const std::string& dir, const std::string& pattern);
-    void copyDirectoryRecursively(const fs::path& sourceDir, const fs::path& destinationDir);
+    void copyDirectoryRecursively(const boost::filesystem::path& sourceDir, const boost::filesystem::path& destinationDir);
 } }
 
 #endif /* File_hpp */

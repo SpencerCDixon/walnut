@@ -38,6 +38,10 @@ namespace wn {
     std::string Config::GetAssetPath() const {
         return GetStringWithBackup("assetDir", "assets");
     }
+    
+    std::string Config::GetIncludePath() const {
+        return GetStringWithBackup("includeDir", "include");
+    }
 
     std::string Config::GetStringWithBackup(const std::string& key, const std::string& backup) const {
         if (!m_Table) return backup;

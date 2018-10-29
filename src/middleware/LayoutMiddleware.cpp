@@ -10,6 +10,7 @@
 #include <iostream>
 #include <string>
 #include <boost/filesystem.hpp>
+#include <boost/regex.hpp>
 
 namespace wn {
     LayoutMiddleware::LayoutMiddleware(std::shared_ptr<wn::Config> config) : m_Config(config) {}
@@ -33,9 +34,20 @@ namespace wn {
         
         // TODO: implement more robust interpolation which lets any page metadata be injected
         // into the template.
+        
+        boost::regex expr{"{{.*include (.*\\.html).*}}"};
+        boost::smatch matches;
+        
         while (getline(file, line)) {
             if (line.find("{{content}}") != std::string::npos) {
                 newContent << page->content + '\n';
+            } else if (boost::regex_search(line, matches, expr)) {
+                fs::path includePath(m_Config->GetIncludePath() + "/" + matches[1]);
+                fs::ifstream partial(includePath);
+                std::string partialLine;
+                while (getline(partial, partialLine)) {
+                    newContent << partialLine + '\n';
+                }
             } else {
                 newContent << line + '\n';
             }
