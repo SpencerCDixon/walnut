@@ -11,13 +11,16 @@
 
 #include <memory>
 #include "Middleware.hpp"
+#include "../Config.hpp"
 
 namespace wn {
     class LayoutMiddleware : public wn::Middleware {
     public:
-        LayoutMiddleware();
+        LayoutMiddleware(std::shared_ptr<wn::Config> config);
         
         void Run(std::shared_ptr<wn::Page>&& page) override;
+    private:
+        std::shared_ptr<wn::Config> m_Config;
     };
 }
 

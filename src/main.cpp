@@ -20,7 +20,7 @@ int main(int argc, const char * argv[]) {
     
     // Middlewares
     auto mdMiddleware = std::make_unique<wn::MarkdownMiddleware>();
-    auto layoutMiddleware = std::make_unique<wn::LayoutMiddleware>();
+    auto layoutMiddleware = std::make_unique<wn::LayoutMiddleware>(config);
     pipeline.RegisterMiddleware(std::move(mdMiddleware));
     pipeline.RegisterMiddleware(std::move(layoutMiddleware));
     
