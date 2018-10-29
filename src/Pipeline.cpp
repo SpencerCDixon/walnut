@@ -11,41 +11,61 @@
 
 #include <iostream>
 #include <boost/filesystem.hpp>
+#include <cpptoml/cpptoml.h>
 
 namespace wn {
     Pipeline::Pipeline(std::shared_ptr<Config> config) {
         auto filepaths = wn::util::filesWithExtension(config->GetContentPath(), ".md");
         for (auto f : filepaths) {
             boost::filesystem::path path(f);
-            auto meta = std::make_unique<PageMetadata>(f, path.extension().string());
-            
-            std::stringstream contents;
             boost::filesystem::ifstream file(path);
+            
+            std::stringstream ss[2];
             std::string line;
+            bool inHeader = false;
+            bool onFirstLine = true;
+            bool shouldInsert = true;
             
             while (getline(file, line)) {
-                contents << line;
+                if (onFirstLine && line.find("---") != std::string::npos) {
+                    inHeader = true;
+                    onFirstLine = false;
+                    shouldInsert = false;
+                } else if (inHeader && line.find("---") != std::string::npos) {
+                    inHeader = false;
+                    shouldInsert = false;
+                } else {
+                    shouldInsert = true;
+                }
+                
+                line += '\n';
+                
+                if (shouldInsert) {
+                    if (inHeader) {
+                        ss[0] << line;
+                    } else {
+                        ss[1] << line;
+                    }
+                }
             }
-            auto page = std::make_shared<Page>(contents.str(), std::move(meta));
             
+            cpptoml::parser p{ss[0]};
+            auto table = p.parse();
+            auto meta = std::make_unique<PageMetadata>(f, path.extension().string(), table);
+            auto page = std::make_shared<Page>(ss[1].str(), std::move(meta));
+        
             m_Pages.push_back(page);
         }
     }
     
-    void Pipeline::Execute() {
-        std::cout << "middleware count: " << m_Middlewares.size() << std::endl;
-        
-        std::vector<std::shared_ptr<wn::Page>>::iterator i;
-        for (i = m_Pages.begin(); i != m_Pages.end(); i++) {
-            std::cout << "processing page: " << (*i)->metadata->path << std::endl;
-            
-            std::cout << "  page contents: " << (*i)->content << std::endl;
-        
+    void Pipeline::Execute() {        
+        for (auto& p : m_Pages) {
+            std::cout << "processing page: " << p->metadata->path << std::endl;
+            std::cout << "  before:\n" << p->content << std::endl;
             for (auto& m : m_Middlewares) {
-                m->Run(std::move(*i));
+                m->Run(std::move(p));
             }
-            
-            std::cout << "  page contents: " << (*i)->content << std::endl;
+            std::cout << "  after:\n" << p->content << std::endl;
         }
     }
     

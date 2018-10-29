@@ -11,13 +11,22 @@
 
 #include <memory>
 #include <string>
+#include <cpptoml/cpptoml.h>
 
 namespace wn {
     struct PageMetadata {
         std::string path;
         std::string extension;
+        std::string layout;
         
-        PageMetadata(std::string path, std::string extension) : path(path), extension(extension) {}
+        PageMetadata(std::string path, std::string extension, std::shared_ptr<cpptoml::table> table) : path(path), extension(extension) {
+            
+            auto hLayout = table->get_as<std::string>("layout");
+            
+            if (hLayout) {
+                layout = *hLayout;
+            }
+        }
     };
     
     struct Page {

@@ -18,6 +18,7 @@
 		4D1D76262186936000A967A6 /* libgtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1D76232186936000A967A6 /* libgtest.a */; };
 		4D1D76272186936000A967A6 /* libgtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1D76232186936000A967A6 /* libgtest.a */; };
 		4D1D7628218694D600A967A6 /* Config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D8D94C22186122E008A44EF /* Config.cpp */; };
+		4D1D762A2186B86600A967A6 /* ConfigTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D1D76292186B86600A967A6 /* ConfigTests.cpp */; };
 		4D48AA7B2185FFA800A242A8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D48AA7A2185FFA800A242A8 /* main.cpp */; };
 		4D8D94C42186122E008A44EF /* Config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D8D94C22186122E008A44EF /* Config.cpp */; };
 		4D8D94E3218637E8008A44EF /* File.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D8D94E1218637E8008A44EF /* File.cpp */; };
@@ -85,6 +86,7 @@
 		4D1D76202186936000A967A6 /* gtest-printers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "gtest-printers.h"; sourceTree = "<group>"; };
 		4D1D76222186936000A967A6 /* libgtest_main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgtest_main.a; sourceTree = "<group>"; };
 		4D1D76232186936000A967A6 /* libgtest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgtest.a; sourceTree = "<group>"; };
+		4D1D76292186B86600A967A6 /* ConfigTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConfigTests.cpp; sourceTree = "<group>"; };
 		4D48AA772185FFA800A242A8 /* walnut */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = walnut; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D48AA7A2185FFA800A242A8 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		4D8D94C1218611F0008A44EF /* walnut.toml */ = {isa = PBXFileReference; lastKnownFileType = text; path = walnut.toml; sourceTree = "<group>"; };
@@ -111,7 +113,6 @@
 		4D8D94D92186184B008A44EF /* strikethroughparser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = strikethroughparser.h; sourceTree = "<group>"; };
 		4D8D94DA2186184B008A44EF /* quoteparser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quoteparser.h; sourceTree = "<group>"; };
 		4D8D94DC21861E68008A44EF /* file1.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = file1.md; sourceTree = "<group>"; };
-		4D8D94DD21861EDB008A44EF /* file2.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = file2.md; sourceTree = "<group>"; };
 		4D8D94DF21861EF1008A44EF /* draft1.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = draft1.md; sourceTree = "<group>"; };
 		4D8D94E1218637E8008A44EF /* File.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = File.cpp; sourceTree = "<group>"; };
 		4D8D94E2218637E8008A44EF /* File.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = File.hpp; sourceTree = "<group>"; };
@@ -13514,6 +13515,7 @@
 			isa = PBXGroup;
 			children = (
 				4D1D75FC2186900400A967A6 /* main.cpp */,
+				4D1D76292186B86600A967A6 /* ConfigTests.cpp */,
 			);
 			path = tests;
 			sourceTree = "<group>";
@@ -13691,7 +13693,6 @@
 			children = (
 				4D8D94DE21861EE1008A44EF /* drafts */,
 				4D8D94DC21861E68008A44EF /* file1.md */,
-				4D8D94DD21861EDB008A44EF /* file2.md */,
 			);
 			path = content;
 			sourceTree = "<group>";
@@ -36071,6 +36072,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D1D75FD2186900400A967A6 /* main.cpp in Sources */,
+				4D1D762A2186B86600A967A6 /* ConfigTests.cpp in Sources */,
 				4D1D7628218694D600A967A6 /* Config.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
