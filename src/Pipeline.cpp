@@ -14,7 +14,7 @@
 #include <cpptoml/cpptoml.h>
 
 namespace wn {
-    Pipeline::Pipeline(std::shared_ptr<Config> config) {
+    Pipeline::Pipeline(std::shared_ptr<Config> config) : m_Config(config) {
         auto filepaths = wn::util::filesWithExtension(config->GetContentPath(), ".md");
         for (auto f : filepaths) {
             boost::filesystem::path path(f);
@@ -60,7 +60,8 @@ namespace wn {
         }
     }
     
-    void Pipeline::Execute() {        
+    void Pipeline::Execute() {
+        // Process pages
         for (auto& p : m_Pages) {
             std::cout << "processing page: " << p->metadata->path << std::endl;
             std::cout << "  before:\n" << p->content << std::endl;
@@ -69,6 +70,12 @@ namespace wn {
             }
             std::cout << "  after:\n" << p->content << std::endl;
         }
+        
+        // Copy assets
+        boost::filesystem::path assetSource(m_Config->GetAssetPath());
+        boost::filesystem::path assetDest(m_Config->GetDistPath() + "/" + m_Config->GetAssetPath());
+        
+        wn::util::copyDirectoryRecursively(assetSource, assetDest);
     }
     
     void Pipeline::RegisterMiddleware(std::unique_ptr<wn::Middleware> m) {

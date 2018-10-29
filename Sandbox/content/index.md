@@ -1,3 +1,6 @@
+---
+layout = "blog"
+---
 # My Home Page
 
 This is a paragraph with some text

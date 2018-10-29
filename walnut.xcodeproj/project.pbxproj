@@ -97,6 +97,7 @@
 		4D1D76322187868700A967A6 /* DistMiddleware.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DistMiddleware.cpp; sourceTree = "<group>"; };
 		4D1D76332187868700A967A6 /* DistMiddleware.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DistMiddleware.hpp; sourceTree = "<group>"; };
 		4D1D763621878DAE00A967A6 /* index.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = index.md; sourceTree = "<group>"; };
+		4D1D763C2187937800A967A6 /* styles.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = styles.css; sourceTree = "<group>"; };
 		4D48AA772185FFA800A242A8 /* walnut */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = walnut; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D48AA7A2185FFA800A242A8 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		4D8D94C1218611F0008A44EF /* walnut.toml */ = {isa = PBXFileReference; lastKnownFileType = text; path = walnut.toml; sourceTree = "<group>"; };
@@ -13629,6 +13630,14 @@
 			path = layouts;
 			sourceTree = "<group>";
 		};
+		4D1D763B2187936000A967A6 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				4D1D763C2187937800A967A6 /* styles.css */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
 		4D48AA6E2185FFA800A242A8 = {
 			isa = PBXGroup;
 			children = (
@@ -13678,6 +13687,7 @@
 		4D8D94C0218611DC008A44EF /* Sandbox */ = {
 			isa = PBXGroup;
 			children = (
+				4D1D763B2187936000A967A6 /* assets */,
 				4D1D7630218782C800A967A6 /* layouts */,
 				4D8D94DB21861E5D008A44EF /* content */,
 				4D8D94C1218611F0008A44EF /* walnut.toml */,

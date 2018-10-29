@@ -34,6 +34,10 @@ namespace wn {
     std::string Config::GetDistPath() const {
         return GetStringWithBackup("distDir", "dist");
     }
+    
+    std::string Config::GetAssetPath() const {
+        return GetStringWithBackup("assetDir", "assets");
+    }
 
     std::string Config::GetStringWithBackup(const std::string& key, const std::string& backup) const {
         if (!m_Table) return backup;

@@ -21,6 +21,7 @@ namespace wn {
         std::string GetLayoutPath() const;
         std::string GetContentPath() const;
         std::string GetDistPath() const;
+        std::string GetAssetPath() const;
         
     private:
         std::shared_ptr<cpptoml::table> m_Table;

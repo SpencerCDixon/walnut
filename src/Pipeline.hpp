@@ -24,6 +24,7 @@ namespace wn {
     private:
         std::vector<std::unique_ptr<wn::Middleware>> m_Middlewares;
         std::vector<std::shared_ptr<wn::Page>> m_Pages;
+        std::shared_ptr<wn::Config> m_Config;
     };
 }
 
