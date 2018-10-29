@@ -52,6 +52,8 @@ namespace wn {
             cpptoml::parser p{ss[0]};
             auto table = p.parse();
             auto meta = std::make_unique<PageMetadata>(f, path.extension().string(), table);
+            
+            std::cout << *(meta.get()) << std::endl;
             auto page = std::make_shared<Page>(ss[1].str(), std::move(meta));
         
             m_Pages.push_back(page);

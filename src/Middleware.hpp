@@ -12,21 +12,19 @@
 #include <memory>
 #include <string>
 #include <cpptoml/cpptoml.h>
+#include <iostream>
 
 namespace wn {
-    struct PageMetadata {
+    class PageMetadata {
+    public:
         std::string path;
         std::string extension;
-        std::string layout;
         
-        PageMetadata(std::string path, std::string extension, std::shared_ptr<cpptoml::table> table) : path(path), extension(extension) {
-            
-            auto hLayout = table->get_as<std::string>("layout");
-            
-            if (hLayout) {
-                layout = *hLayout;
-            }
-        }
+        std::string layout;
+        std::string slug;
+        
+        PageMetadata(std::string path, std::string extension, std::shared_ptr<cpptoml::table> table);
+        friend std::ostream& operator<<(std::ostream& os, const PageMetadata& pm);
     };
     
     struct Page {
