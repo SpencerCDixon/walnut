@@ -19,6 +19,8 @@
 		4D1D76272186936000A967A6 /* libgtest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1D76232186936000A967A6 /* libgtest.a */; };
 		4D1D7628218694D600A967A6 /* Config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D8D94C22186122E008A44EF /* Config.cpp */; };
 		4D1D762A2186B86600A967A6 /* ConfigTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D1D76292186B86600A967A6 /* ConfigTests.cpp */; };
+		4D1D762E21877E5B00A967A6 /* LayoutMiddleware.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D1D762C21877E5B00A967A6 /* LayoutMiddleware.cpp */; };
+		4D1D762F21877E5B00A967A6 /* LayoutMiddleware.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D1D762C21877E5B00A967A6 /* LayoutMiddleware.cpp */; };
 		4D48AA7B2185FFA800A242A8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D48AA7A2185FFA800A242A8 /* main.cpp */; };
 		4D8D94C42186122E008A44EF /* Config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D8D94C22186122E008A44EF /* Config.cpp */; };
 		4D8D94E3218637E8008A44EF /* File.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D8D94E1218637E8008A44EF /* File.cpp */; };
@@ -87,6 +89,8 @@
 		4D1D76222186936000A967A6 /* libgtest_main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgtest_main.a; sourceTree = "<group>"; };
 		4D1D76232186936000A967A6 /* libgtest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgtest.a; sourceTree = "<group>"; };
 		4D1D76292186B86600A967A6 /* ConfigTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConfigTests.cpp; sourceTree = "<group>"; };
+		4D1D762C21877E5B00A967A6 /* LayoutMiddleware.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LayoutMiddleware.cpp; sourceTree = "<group>"; };
+		4D1D762D21877E5B00A967A6 /* LayoutMiddleware.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LayoutMiddleware.hpp; sourceTree = "<group>"; };
 		4D48AA772185FFA800A242A8 /* walnut */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = walnut; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D48AA7A2185FFA800A242A8 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		4D8D94C1218611F0008A44EF /* walnut.toml */ = {isa = PBXFileReference; lastKnownFileType = text; path = walnut.toml; sourceTree = "<group>"; };
@@ -13596,6 +13600,19 @@
 			path = lib;
 			sourceTree = "<group>";
 		};
+		4D1D762B21877E3500A967A6 /* middleware */ = {
+			isa = PBXGroup;
+			children = (
+				4D1D75EC2186531F00A967A6 /* Middleware.cpp */,
+				4D1D75ED2186531F00A967A6 /* Middleware.hpp */,
+				4D1D75EF2186552500A967A6 /* MarkdownMiddleware.cpp */,
+				4D1D75F02186552500A967A6 /* MarkdownMiddleware.hpp */,
+				4D1D762C21877E5B00A967A6 /* LayoutMiddleware.cpp */,
+				4D1D762D21877E5B00A967A6 /* LayoutMiddleware.hpp */,
+			);
+			path = middleware;
+			sourceTree = "<group>";
+		};
 		4D48AA6E2185FFA800A242A8 = {
 			isa = PBXGroup;
 			children = (
@@ -13619,15 +13636,12 @@
 		4D48AA792185FFA800A242A8 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				4D1D762B21877E3500A967A6 /* middleware */,
 				4D8D94E0218637CA008A44EF /* utils */,
 				4D8D94BC218600B7008A44EF /* vendor */,
 				4D48AA7A2185FFA800A242A8 /* main.cpp */,
 				4D8D94C22186122E008A44EF /* Config.cpp */,
 				4D8D94C32186122E008A44EF /* Config.hpp */,
-				4D1D75EC2186531F00A967A6 /* Middleware.cpp */,
-				4D1D75ED2186531F00A967A6 /* Middleware.hpp */,
-				4D1D75EF2186552500A967A6 /* MarkdownMiddleware.cpp */,
-				4D1D75F02186552500A967A6 /* MarkdownMiddleware.hpp */,
 				4D1D75F221865BF500A967A6 /* Pipeline.cpp */,
 				4D1D75F321865BF500A967A6 /* Pipeline.hpp */,
 			);
@@ -36072,6 +36086,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D1D75FD2186900400A967A6 /* main.cpp in Sources */,
+				4D1D762F21877E5B00A967A6 /* LayoutMiddleware.cpp in Sources */,
 				4D1D762A2186B86600A967A6 /* ConfigTests.cpp in Sources */,
 				4D1D7628218694D600A967A6 /* Config.cpp in Sources */,
 			);
@@ -36082,6 +36097,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D8D94E3218637E8008A44EF /* File.cpp in Sources */,
+				4D1D762E21877E5B00A967A6 /* LayoutMiddleware.cpp in Sources */,
 				4D48AA7B2185FFA800A242A8 /* main.cpp in Sources */,
 				4D8DCE00218648DA008A44EF /* strict_cpp_re.inc in Sources */,
 				4D1D75F421865BF600A967A6 /* Pipeline.cpp in Sources */,

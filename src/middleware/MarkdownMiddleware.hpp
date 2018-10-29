@@ -13,7 +13,6 @@
 #include <maddy/parser.h>
 #include "Middleware.hpp"
 
-
 namespace wn {
     class MarkdownMiddleware : public wn::Middleware {
     public:

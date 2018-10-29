@@ -31,7 +31,8 @@ namespace wn {
         std::string content;
         std::unique_ptr<PageMetadata> metadata;
         
-        Page(std::string content, std::unique_ptr<PageMetadata> metadata) : content(content), metadata(std::move(metadata)) {}
+        Page(std::string content, std::unique_ptr<PageMetadata> metadata)
+            : content(content), metadata(std::move(metadata)) {}
     };
     
     class Middleware {
