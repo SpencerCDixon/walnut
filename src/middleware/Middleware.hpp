@@ -20,10 +20,14 @@ namespace wn {
         std::string path;
         std::string extension;
         
+        // Coming from TOML frontmatter
         std::string layout;
         std::string slug;
+        std::string title;
         
         PageMetadata(std::string path, std::string extension, std::shared_ptr<cpptoml::table> table);
+        
+        std::string Value(std::string key);
         friend std::ostream& operator<<(std::ostream& os, const PageMetadata& pm);
     };
     

@@ -1,5 +1,5 @@
 ---
-title = "spencer"
+title = "First Blog Post"
 layout = "blog"
 ---
 #  Blog Post One

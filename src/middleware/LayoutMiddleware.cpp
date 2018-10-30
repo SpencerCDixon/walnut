@@ -10,6 +10,7 @@
 #include <iostream>
 #include <string>
 #include <boost/filesystem.hpp>
+#include <boost/algorithm/string/replace.hpp>
 #include <boost/regex.hpp>
 
 namespace wn {
@@ -35,19 +36,29 @@ namespace wn {
         // TODO: implement more robust interpolation which lets any page metadata be injected
         // into the template.
         
-        boost::regex expr{"{{.*include (.*\\.html).*}}"};
-        boost::smatch matches;
+        boost::regex includePattern{"{{.*include (.*\\.html).*}}"};
+        boost::regex pagePattern{"{{.*page\\.(.*).*}}"};
+        boost::smatch includeMatch;
+        boost::smatch pageMatch;
         
         while (getline(file, line)) {
             if (line.find("{{content}}") != std::string::npos) {
                 newContent << page->content + '\n';
-            } else if (boost::regex_search(line, matches, expr)) {
-                fs::path includePath(m_Config->GetIncludePath() + "/" + matches[1]);
+            } else if (boost::regex_search(line, includeMatch, includePattern)) {
+                fs::path includePath(m_Config->GetIncludePath() + "/" + includeMatch[1]);
                 fs::ifstream partial(includePath);
                 std::string partialLine;
                 while (getline(partial, partialLine)) {
                     newContent << partialLine + '\n';
                 }
+            } else if (boost::regex_search(line, pageMatch, pagePattern)) {
+                std::string key = pageMatch[1];
+                std::string directiveToReplace = pageMatch[0];
+                
+                boost::replace_first(line, directiveToReplace, page->metadata->Value(key));
+                newContent << line + '\n';
+                
+                
             } else {
                 newContent << line + '\n';
             }
