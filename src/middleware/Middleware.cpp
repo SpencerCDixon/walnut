@@ -20,23 +20,16 @@ namespace wn {
     }
     
     PageMetadata::PageMetadata(std::string path, std::string extension, std::shared_ptr<cpptoml::table> table) :
-     path(path), extension(extension) {
+     path(path), extension(extension), m_Table(table) {
          layout = *(table->get_as<std::string>("layout"));
          slug = *(table->get_as<std::string>("slug"));
          title = *(table->get_as<std::string>("title"));
     }
     
     std::string PageMetadata::Value(std::string key) {
-        if (key == "extension") {
-            return extension;
-        } else if (key == "title") {
-            return title;
-        } else if (key == "slug") {
-            return slug;
-        } else if (key == "path") {
-            return path;
-        } else if (key == "layout") {
-            return layout;
+        auto value = m_Table->get_as<std::string>(key);
+        if (value) {
+            return *value;
         }
         
         // Not found, ok to silently fail.

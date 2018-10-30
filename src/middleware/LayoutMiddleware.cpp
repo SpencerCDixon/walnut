@@ -57,8 +57,6 @@ namespace wn {
                 
                 boost::replace_first(line, directiveToReplace, page->metadata->Value(key));
                 newContent << line + '\n';
-                
-                
             } else {
                 newContent << line + '\n';
             }

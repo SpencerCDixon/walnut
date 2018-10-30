@@ -20,7 +20,8 @@ namespace wn {
         std::string path;
         std::string extension;
         
-        // Coming from TOML frontmatter
+        // Coming from TOML frontmatter, special
+        // values controlled by Walnut.
         std::string layout;
         std::string slug;
         std::string title;
@@ -29,6 +30,9 @@ namespace wn {
         
         std::string Value(std::string key);
         friend std::ostream& operator<<(std::ostream& os, const PageMetadata& pm);
+        
+    private:
+        std::shared_ptr<cpptoml::table> m_Table;
     };
     
     struct Page {
