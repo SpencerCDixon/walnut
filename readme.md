@@ -52,6 +52,38 @@ markdown file that gets processed will get injected wherever you have a
 </html>
 ```
 
+**Frontmatter**
+
+The layout selected for the markdown file is based on what you have in the TOML
+frontmatter of your page.  Example frontmatter looks like:
+
+```
+---
+layout = "blog-post"
+title = "My Awesome Blog Post"
+tags = "blogging"
+---
+
+# My Awesome Blog Post
+
+Some content about this post.
+```
+
+In the above example the layout used will be the `blog-post.html` layout.
+
+The TOML frontmatter can be rendered in your layouts as well.  Use the
+directive: `{{page.title}}`.  For example, you may want to change the page title
+based on post:
+
+```html
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Documentation | {{page.title}}</title>
+    <link rel="stylesheet" href="./assets/styles.css">
+</head>
+```
+
 ### Partials 
 
 Common HTML elements can be extracted into partials and then injected into
